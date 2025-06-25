@@ -240,8 +240,6 @@
             Particularly, the algorithm enjoys sublinear dynamic regret, defined as the suboptimality against an optimal clairvoyant controller that knows how the unknown disturbances and system dynamics will adapt to its actions.
             The algorithm is self-supervised and applies to control-affine systems with unknown dynamics and disturbances that can be expressed in reproducing kernel Hilbert spaces.  
             Such spaces can model external disturbances and modeling errors that can even be adaptive to the system's state and control input.  
-            For example, they can model wind and wave disturbances to aerial and marine vehicles, or inaccurate model parameters such as inertia of mechanical systems.
-            We are motivated by the future of autonomy where robots will autonomously perform complex tasks despite real-world unknown disturbances such as wind gusts.
             The algorithm first generates random Fourier features that are used to approximate the unknown dynamics or disturbances. 
             Then, it employs model predictive control based on the current learned model of the unknown dynamics (or disturbances).
             The model of the unknown dynamics is updated online using least squares based on the data collected while controlling the system.
@@ -348,7 +346,7 @@
         </video>
         
         <button class="nav-button right" onclick="nextVideo()">&#9654;</button>
-        
+
         <!-- <p class="footnote" id="footnote">Shallow trajectories represent initial guesses.</p> -->
       </div>
     </div>
