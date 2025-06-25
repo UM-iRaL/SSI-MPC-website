@@ -1,6 +1,6 @@
-# Morphable Drone Website Page
+# SSI-MPC Website Page
 
-This is the repository that contains source code for the [Morphable Drone Website](https://morphable-iral.github.io).
+This is the repository that contains source code for our paper [Simultaneous System Identification and Model Predictive Control with No Dynamic Regret](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=11027437).
 
 
 This code was borrowed from the [Nerfies website](https://nerfies.github.io).
