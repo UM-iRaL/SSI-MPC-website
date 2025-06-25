@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="A novel omnidirectional quadrotor design with simultaneous control over position and orientation">
+  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Morphable Quadrotor</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script> -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/TRO.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<!-- <nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://keunhong.com">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://hypernerf.github.io">
+            HyperNeRF
+          </a>
+          <a class="navbar-item" href="https://nerfies.github.io">
+            Nerfies
+          </a>
+          <a class="navbar-item" href="https://latentfusion.github.io">
+            LatentFusion
+          </a>
+          <a class="navbar-item" href="https://photoshape.github.io">
+            PhotoShape
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav> -->
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Simultaneous System Identification and Model
+                                                    Predictive Control with No Dynamic Regret</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+                <a href="https://hongyu-zhou.github.io/">Hongyu Zhou</a>,
+            </span>
+            <span class="author-block">
+                <a href="https://vasileiostzoumas.com/">Vasileios Tzoumas</a>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">University of Michigan</span>,
+            <!-- <span class="author-block"><sup>*</sup>Equad Contribution</span> -->
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">IEEE Transaction on Robotics</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://ieeexplore.ieee.org/document/11027437"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2407.04143"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href="./static/files/ocraim_iral_morpheus.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Supplimentary Material</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/UM-iRaL/SSI-MPC"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/images/hardware.pdf"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        We provide a control algorithm that demonstrates an ability to simultaneously learn unknown dynamics/disturbances in a self-supervised manner, based on the data collected on-the-go, and uses the learned models for predictive control. 
+        We prove that the algorithm guarantees bounded suboptimality against the optimal controller in hindsight, under technical assumptions that we describe later in the paper.
+        The algorithm enables a quadrotor to track a reference trajectory under the challenges of voltage drop and a variety of unknown aerodynamic disturbances: ground effects, wind disturbances, and drag.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<!-- Experiments -->
+<!-- <section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-steve">
+            <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/new_slant_formatted.mp4"
+                      type="video/mp4">
+            </video>
+        </div>
+        <div class="item item-steve">
+            <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/new_watertower_formatted.mp4"
+                      type="video/mp4">
+            </video>
+        </div>
+        <div class="item item-steve">
+            <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/new_conduit.mp4"
+                      type="video/mp4">
+            </video>
+        </div>
+        
+        <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/angle_setpoints.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-chair-tp">
+          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/rotate_z_small.mov"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/corkscrew_with_axes.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/rand_orien_and_trans.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-blueshirt">
+          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/trans_and_rot_z.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+
+<!-- Abstract. -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            We provide an algorithm for the simultaneous system identification and model predictive control of nonlinear systems. 
+            The algorithm has finite-time near-optimality guarantees and asymptotically converges to the optimal (non-causal) controller.  
+            Particularly, the algorithm enjoys sublinear dynamic regret, defined as the suboptimality against an optimal clairvoyant controller that knows how the unknown disturbances and system dynamics will adapt to its actions.
+            The algorithm is self-supervised and applies to control-affine systems with unknown dynamics and disturbances that can be expressed in reproducing kernel Hilbert spaces.  
+            Such spaces can model external disturbances and modeling errors that can even be adaptive to the system's state and control input.  
+            For example, they can model wind and wave disturbances to aerial and marine vehicles, or inaccurate model parameters such as inertia of mechanical systems.
+            We are motivated by the future of autonomy where robots will autonomously perform complex tasks despite real-world unknown disturbances such as wind gusts.
+            The algorithm first generates random Fourier features that are used to approximate the unknown dynamics or disturbances. 
+            Then, it employs model predictive control based on the current learned model of the unknown dynamics (or disturbances).
+            The model of the unknown dynamics is updated online using least squares based on the data collected while controlling the system.
+            We validate our algorithm in both hardware experiments and physics-based simulations.  
+            The simulations include (i) a cart-pole aiming to maintain the pole upright despite inaccurate model parameters, and (ii) a quadrotor aiming to track reference trajectories despite unmodeled aerodynamic drag effects.
+            The hardware experiments include a quadrotor aiming to track a circular trajectory despite unmodeled aerodynamic drag effects, ground effects, and wind disturbances.
+          </p>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered">
+        <div class="column is-half has-text-centered">
+          <figure class="image">
+            <img src="./static/images/framework.pdf" alt="framework">
+            <figcaption class="is-italic">
+                Overview of Simultaneous System Identification and Model Predictive Control Pipeline.
+                The pipeline is composed of two interacting modules: (i) a model predictive control (MPC) module, and (ii) an online system identification module. 
+                The MPC module uses the estimated unknown disturbances/dynamics from the system identification module to calculate the next control input. 
+                Given the control input and the observed new state, the online system identification module then updates the estimate of the unknown disturbances/dynamics.
+              </figcaption>
+          </figure>
+        </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Method. -->
+<!-- <section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column">
+        <h2 class="title is-3">Method</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <p>
+                We present a novel variable-tilt co-axial quadrotor and a control pipeline that achieves a significantly higher level of maneuverability, dexterity, and efficiency. 
+                This system builds on prior work by improving omnidirectional flight capabilities while avoiding inefficient thrust cancellations. To realize this, each of the rotor pairs can be independently oriented using a pair of servo motors. 
+                This allows for full 6-DoF control of position and orientation. 
+                In the <a href="./static/files/ocraim_iral_morpheus.pdf" style="text-decoration: none;">paper</a>, we prove that the proposed controller is exponentially stable <i>almost</i> everywhere and energy-optimal in terms of control allocation.
+            </p>
+
+            <figure class="image">
+                <img src="./static/images/pipeline-1.png" alt="Drone Fabrication", style="max-width: 70%; height: auto; display: block; margin: 0 auto;">
+                <figcaption class="is-italic has-text-centered", style="max-width: 70%; height: auto; display: block; margin: 0 auto;">
+                    Autonomous pipeline for the proposed variable-tilt morphable quadrotor.
+                </figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="columns is-centered">
+        <div class="column is-full-width">
+            <h2 class="title is-3">Quadrotor Experiments</h2>
+    
+            <div class="content has-text-justified">
+                <p>
+                    In future work, we plan to apply these algorithms in real-world experiments. Progress has already been made in this direction, including:
+                </p>
+                <ol style="padding-left: 1.2em; line-height: 1.6;">
+                    <li>
+                        <p><strong>Extending the algorithms to the <a href="https://docs.px4.io/main/en/simulation/" style="text-decoration: none;">PX4 software-in-the-loop</a> flight stack</strong></p>
+                    </li>
+            
+                    <li>
+                        <p><strong>Fabricating the drone</strong></p>
+                        <figure class="image">
+                            <img src="./static/images/annotatedreallife.png" alt="Drone Fabrication", style="max-width: 60%; height: auto; display: block; margin: 0 auto;">
+                            <figcaption class="is-italic has-text-centered", style="max-width: 60%; height: auto; display: block; margin: 0 auto;">
+                                Prototype of morphable quadrotor: <strong>1.</strong> Dynamixel Servos, <strong>2.</strong> NVIDIA Jetson Orin Nano, <strong>3.</strong> Pixhawk 6x Flight Computer, <strong>4.</strong> Intel RealSense Camera, <strong>5.</strong> Coaxial Propellor Motors, <strong>6.</strong> ESC + PDB Stack
+                            </figcaption>
+                        </figure>
+                    </li>
+            
+                    <li>
+                        <p><strong>Conducting preliminary flight tests</strong></p>
+                        <figure class="image">
+                            <img src="./static/images/prelim_flight.jpg" alt="Preliminary Flight Test", style="max-width: 60%; height: auto; display: block; margin: 0 auto;">
+                            <figcaption class="is-italic has-text-centered", style="max-width: 60%; height: auto; display: block; margin: 0 auto;">
+                                Preliminary, tethered flight test of the MorphEUS quadrotor using PX4 flight controller and VIO localization.
+                            </figcaption>
+                        </figure>
+                    </li>
+                </ol>
+            </div>
+          </div>
+      </div>
+  </div>
+</section> -->
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{zhou2024simultaneous,
+      title={Simultaneous System Identification and Model Predictive Control with No Dynamic Regret},
+      author={Zhou, Hongyu and Tzoumas, Vasileios},
+      journal={IEEE Transactions on Robotics},
+      year={2025},
+      publisher={IEEE}
+    }</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            Website template from 
+            <a href="https://github.com/nerfies/nerfies.github.io">here</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
