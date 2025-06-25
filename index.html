@@ -158,15 +158,14 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/images/hardware.pdf"
-                type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        We provide a control algorithm that demonstrates an ability to simultaneously learn unknown dynamics/disturbances in a self-supervised manner, based on the data collected on-the-go, and uses the learned models for predictive control. 
-        We prove that the algorithm guarantees bounded suboptimality against the optimal controller in hindsight, under technical assumptions that we describe later in the paper.
-        The algorithm enables a quadrotor to track a reference trajectory under the challenges of voltage drop and a variety of unknown aerodynamic disturbances: ground effects, wind disturbances, and drag.
-      </h2>
+      <figure class="image">
+        <img src="./static/images/framework.png" alt="framework">
+        <figcaption class="is-italic">
+          We provide a control algorithm that demonstrates an ability to simultaneously learn unknown dynamics/disturbances in a self-supervised manner, based on the data collected on-the-go, and uses the learned models for predictive control. 
+          We prove that the algorithm guarantees bounded suboptimality against the optimal controller in hindsight, under technical assumptions that we describe later in the paper.
+          The algorithm enables a quadrotor to track a reference trajectory under the challenges of voltage drop and a variety of unknown aerodynamic disturbances: ground effects, wind disturbances, and drag.
+        </figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -262,7 +261,7 @@
     <div class="columns is-centered">
         <div class="column is-half has-text-centered">
           <figure class="image">
-            <img src="./static/images/framework.pdf" alt="framework">
+            <img src="./static/images/framework.png" alt="framework">
             <figcaption class="is-italic">
                 Overview of Simultaneous System Identification and Model Predictive Control Pipeline.
                 The pipeline is composed of two interacting modules: (i) a model predictive control (MPC) module, and (ii) an online system identification module. 
