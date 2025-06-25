@@ -224,102 +224,6 @@
   </div>
 </section> -->
 
-<style>
-  .video-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    position: relative;
-    max-width: 1500px;
-    margin: auto;
-  }
-  
-  .video-title {
-    text-align: center;
-    font-size: 1.8rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-
-  video {
-    width: 1400px;
-    height: 600px;
-    border-radius: 10px;
-    transition: opacity 0.5s ease-in-out;
-  }
-  
-  .nav-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    font-size: 1.5rem;
-    padding: 5px 10px;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-  
-  .nav-button.left { left: -30px; }
-  .nav-button.right { right: -30px; }
-  
-  .footnote {
-    text-align: center;
-    font-size: 2rem;
-    color: gray;
-    margin-top: 10px;
-  }
-</style>
-
-<script>
-  const videoList = [
-    { src: "./static/videos/ground.mp4", title: "Ground Effects" },
-    { src: "./static/videos/wind.mp4", title: "Wind Disturbances" },
-    { src: "./static/videos/wind_ground.mp4", title: "Ground Effects & Wind Disturbances" }
-  ];
-
-  let currentIndex = 0;
-  const videoElement = document.getElementById("main-video");
-  const videoSource = document.getElementById("video-source");
-  const titleElement = document.getElementById("video-title");
-  const footnote = document.getElementById("footnote");
-
-  function updateVideo() {
-    console.log("Updating video to index:", currentIndex);
-    videoElement.style.opacity = 0;
-    setTimeout(() => {
-      videoSource.src = videoList[currentIndex].src;
-      videoElement.load();
-      titleElement.textContent = videoList[currentIndex].title;
-      videoElement.style.opacity = 1;
-      videoElement.hidden = false;
-
-      // Auto-play
-      videoElement.play().catch(error => console.warn("Auto-play was prevented:", error));
-
-      // Display footnote only on the first video
-      footnote.style.display = currentIndex === 0 ? "block" : "none";
-    }, 300);
-  }
-
-  function prevVideo() {
-    currentIndex = (currentIndex - 1 + videoList.length) % videoList.length;
-    updateVideo();
-  }
-
-  function nextVideo() {
-    currentIndex = (currentIndex + 1) % videoList.length;
-    updateVideo();
-  }
-
-  // On page load, start the first video
-  window.onload = function() {
-    console.log("Page loaded, starting video");
-    updateVideo();
-  };
-</script>
 
 
 
@@ -430,6 +334,123 @@
       </div>
   </div>
 </section> -->
+
+
+<section class="hero teaser">
+  <div class="container">
+    <div class="hero-body">
+      <div class="video-container">
+        <h3 class="video-title" id="video-title">Animation</h3>
+        <button class="nav-button left" onclick="prevVideo()">&#9664;</button>
+        
+        <video id="main-video" controls hidden muted loop>
+          <source id="video-source" type="video/mp4">
+        </video>
+        
+        <button class="nav-button right" onclick="nextVideo()">&#9654;</button>
+        
+        <!-- <p class="footnote" id="footnote">Shallow trajectories represent initial guesses.</p> -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .video-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    max-width: 1500px;
+    margin: auto;
+  }
+  
+  .video-title {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  video {
+    width: 1400px;
+    height: 600px;
+    border-radius: 10px;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .nav-button.left { left: -30px; }
+  .nav-button.right { right: -30px; }
+  
+  .footnote {
+    text-align: center;
+    font-size: 2rem;
+    color: gray;
+    margin-top: 10px;
+  }
+</style>
+
+<script>
+  const videoList = [
+    { src: "./static/videos/ground.mp4", title: "Ground Effects" },
+    { src: "./static/videos/wind.mp4", title: "Wind Disturbances" },
+    { src: "./static/videos/wind_ground.mp4", title: "Ground Effects & Wind Disturbances" }
+  ];
+
+  let currentIndex = 0;
+  const videoElement = document.getElementById("main-video");
+  const videoSource = document.getElementById("video-source");
+  const titleElement = document.getElementById("video-title");
+  const footnote = document.getElementById("footnote");
+
+  function updateVideo() {
+    console.log("Updating video to index:", currentIndex);
+    videoElement.style.opacity = 0;
+    setTimeout(() => {
+      videoSource.src = videoList[currentIndex].src;
+      videoElement.load();
+      titleElement.textContent = videoList[currentIndex].title;
+      videoElement.style.opacity = 1;
+      videoElement.hidden = false;
+
+      // Auto-play
+      videoElement.play().catch(error => console.warn("Auto-play was prevented:", error));
+
+      // Display footnote only on the first video
+      footnote.style.display = currentIndex === 0 ? "block" : "none";
+    }, 300);
+  }
+
+  function prevVideo() {
+    currentIndex = (currentIndex - 1 + videoList.length) % videoList.length;
+    updateVideo();
+  }
+
+  function nextVideo() {
+    currentIndex = (currentIndex + 1) % videoList.length;
+    updateVideo();
+  }
+
+  // On page load, start the first video
+  window.onload = function() {
+    console.log("Page loaded, starting video");
+    updateVideo();
+  };
+</script>
 
 
 <section class="section" id="BibTeX">
