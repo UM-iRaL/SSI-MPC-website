@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="A novel omnidirectional quadrotor design with simultaneous control over position and orientation">
-  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+        content="Simultaneous System Identification and Model Predictive Control with No Dynamic Regret">
+  <meta name="keywords" content="SSI-MPC">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Morphable Quadrotor</title>
+  <title>SSI-MPC</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script> -->
@@ -87,7 +87,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Simultaneous System Identification and Model
+          <h1 class="title is-2 publication-title">Simultaneous System Identification and Model
                                                     Predictive Control with No Dynamic Regret</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
@@ -158,7 +158,7 @@
 
 <figure class="content is-centered is-full-width has-text-centered">
   <img src="./static/images/hardware.png" width="65%" alt="hardware">
-  <figcaption style="margin-top: 10px; font-size: 1.5rem; color: #333; max-width: 65%; margin-left: auto; margin-right: auto; text-align: center;">
+  <figcaption class="is-italic has-text-centered", style="max-width: 80%; height: auto; display: block; margin: 0 auto;">
     We provide a control algorithm that demonstrates an ability to simultaneously learn unknown dynamics/disturbances in a self-supervised manner, based on the data collected on-the-go, and uses the learned models for predictive control. 
     We prove that the algorithm guarantees bounded suboptimality against the optimal controller in hindsight, under technical assumptions that we describe later in the paper.
     The algorithm enables a quadrotor to track a reference trajectory under the challenges of voltage drop and a variety of unknown aerodynamic disturbances: ground effects, wind disturbances, and drag.
