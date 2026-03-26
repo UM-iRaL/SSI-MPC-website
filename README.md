@@ -1,6 +1,6 @@
 # SSI-MPC Website Page
 
-This is the repository that contains the website code for our paper [Simultaneous System Identification and Model Predictive Control with No Dynamic Regret](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=11027437). Source code for quadrotor simulations available [here](https://github.com/UM-iRaL/SSI-MPC).
+This is the repository that contains the website code for our papers: [Simultaneous System Identification and Model Predictive Control with No Dynamic Regret](https://ieeexplore.ieee.org/document/11027437) and [Adaptive Legged Locomotion via Online Learning for Model Predictive Control](https://ieeexplore.ieee.org/document/11299577). Source code for quadrotor simulations is available [here](https://github.com/UM-iRaL/SSI-MPC), and for quadruped simulations is available [here](https://github.com/UM-iRaL/Adaptive-Legged-Locomotion).
 
 Reference:
 ```
@@ -9,6 +9,17 @@ Reference:
   author={Zhou, Hongyu and Tzoumas, Vasileios},
   journal={IEEE Transactions on Robotics (T-RO)},
   year={2025}
+}
+
+@article{zhou2025adaptive,
+  title={Adaptive Legged Locomotion via Online Learning for Model Predictive Control},
+  author={Zhou, Hongyu and Zhang, Xiaoyu and Tzoumas, Vasileios},
+  journal={IEEE Robotics and Automation Letters},
+  volume={11},
+  number={2},
+  pages={1778--1785},
+  year={2025},
+  publisher={IEEE}
 }
 ```
 
